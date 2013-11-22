@@ -1,5 +1,22 @@
 gcc/
 
+2013-11-22  Yuri Rumyantsev  <ysrumyan@gmail.com>
+
+	* config/i386/i386.c(processor_alias_table): Enable PTA_AES,
+	PTA_PCLMUL and PTA_RDRND for Silvermont.
+	* config/i386/driver-i386.c (host_detect_local_cpu): Set up cpu
+	for Silvermont.
+
+	* doc/invoke.texi: Mention AES, PCLMUL and RDRND for Silvermont.
+
+libgcc/
+
+2013-11-22  Yuri Rumyantsev  <ysrumyan@gmail.com>
+
+	 * config/i386/cpuinfo.c (get_intel_cpu): Add Silvermont cases.
+
+gcc/
+
 2013-11-22  H.J. Lu  <hongjiu.lu@intel.com>
 
 	* config/i386/i386.c (processor_alias_table): Enable PTA_POPCNT
