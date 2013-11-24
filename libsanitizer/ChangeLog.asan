@@ -1,3 +1,16 @@
+2013-12-05  H.J. Lu  <hongjiu.lu@intel.com>
+
+	PR sanitizer/59136
+	* configure.ac: Add --enable-llvm-symbolizer.  Disable
+	llvm-symbolizer by default.  AC_SUBST disable_llvm_symbolizer.
+	* sanitizer_common/Makefile.am (DEFS): Add @disable_llvm_symbolizer@.
+	* configure: Regenerated.
+	* sanitizer_common/Makefile.in: Likewise.
+
+	* sanitizer_common/sanitizer_symbolizer_posix_libcdep.cc
+	(Symbolizer::PlatformInit): Find llvm-symbolizer only if
+	DISABLE_LLVM_SYMBOLIZER isn't defined.
+
 2012-12-18  H.J. Lu  <hongjiu.lu@intel.com>
 
 	* Makefile.am (AM_MAKEFLAGS): Restore CC and CXX.

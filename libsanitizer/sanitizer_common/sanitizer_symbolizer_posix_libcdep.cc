@@ -595,9 +595,11 @@ Symbolizer *Symbolizer::PlatformInit(const char *path_to_external) {
     libbacktrace_symbolizer =
         LibbacktraceSymbolizer::get(&symbolizer_allocator_);
     if (!libbacktrace_symbolizer) {
+#ifndef DISABLE_LLVM_SYMBOLIZER
       // Find path to llvm-symbolizer if it's not provided.
       if (!path_to_external)
         path_to_external = FindPathToBinary("llvm-symbolizer");
+#endif
       if (path_to_external && path_to_external[0] != '\0')
         external_symbolizer = new(symbolizer_allocator_)
             ExternalSymbolizer(path_to_external);

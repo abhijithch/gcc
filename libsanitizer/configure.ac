@@ -16,6 +16,23 @@ AC_ARG_ENABLE(version-specific-runtime-libs,
 [version_specific_libs=no])
 AC_MSG_RESULT($version_specific_libs)
 
+AC_MSG_CHECKING([for --enable-llvm-symbolizer])
+AC_ARG_ENABLE(llvm-symbolizer,
+[  --enable-llvm-symbolizer  Enable llvm-symbolizer],
+[case "$enableval" in
+ yes) enable_llvm_symbolizer=yes ;;
+ no)  enable_llvm_symbolizer=no ;;
+ *)   enable_llvm_symbolizer=no;;
+ esac],
+[enable_llvm_symbolizer=no])
+AC_MSG_RESULT($enable_llvm_symbolizer)
+if test "$enable_llvm_symbolizer" = "no"; then
+  disable_llvm_symbolizer="-DDISABLE_LLVM_SYMBOLIZER"
+else
+  disable_llvm_symbolizer=
+fi
+AC_SUBST(disable_llvm_symbolizer)
+
 # Do not delete or change the following two lines.  For why, see
 # http://gcc.gnu.org/ml/libstdc++/2003-07/msg00451.html
 AC_CANONICAL_SYSTEM
