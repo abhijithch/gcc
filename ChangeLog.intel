@@ -1,0 +1,13 @@
+gcc/
+
+2013-12-06  H.J. Lu  <hongjiu.lu@intel.com>
+
+	* config.gcc: Support --with-cpu=intel.
+
+	* config/i386/i386.c (cpu_names): Add "intel".
+	(processor_alintels_table): Likewise.
+	(ix86_option_override_internal): Disallow -march=intel.
+	* config/i386/i386.h (target_cpu_default): Add
+	TARGET_CPU_DEFAULT_intel.
+
+	* doc/invoke.texi: Document -mtune=intel.
