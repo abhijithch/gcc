@@ -1,5 +1,11 @@
 gcc/
 
+2013-12-13  Yuri Rumyantsev  <ysrumyan@gmail.com>
+
+	* config/i386/i386.c (slm_cost): Fix imul cost for HI.
+
+gcc/
+
 2013-11-22  Yuri Rumyantsev  <ysrumyan@gmail.com>
 
 	* config/i386/i386.c(processor_alias_table): Enable PTA_AES,
